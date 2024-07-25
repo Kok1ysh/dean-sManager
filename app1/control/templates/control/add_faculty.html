@@ -1,0 +1,20 @@
+{% extends "main/index.html" %}
+
+
+{% block content %}
+
+<h1>Додати факультет</h1>
+<form method="post">
+    {% csrf_token %}
+    <h3>Назва факультету</h3>
+    {{form.title}}<br>
+    <h3>Адреса факультету</h3>
+    {{form.adres}}<br>
+    <h3>Декан факультету</h3>
+    {{form.dean}}<br><br>
+    <span>{{error}}</span>
+    <button type="submit">Додати факультет</button>
+</form>
+
+
+{% endblock  %}

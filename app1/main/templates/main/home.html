@@ -1,0 +1,14 @@
+{% extends "main/index.html" %}
+
+
+{% block content %}
+
+<h1>Розклад</h1>
+<select name="faculty" >
+    {% for category in facultys %}
+        <option value="{{ category }}">{{ category }}</option>
+    {% endfor %}
+</select>
+
+
+{% endblock  %}
