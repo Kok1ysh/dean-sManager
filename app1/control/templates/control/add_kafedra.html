@@ -1,0 +1,25 @@
+{% extends "main/index.html" %}
+
+
+{% block content %}
+
+<h1>Додати кафедру</h1>
+<form method="post">
+    {% csrf_token %}
+    <h3>Назва кафедри</h3>
+    {{form.titleKafedra}}<br>
+    <h3>Адреса кафедри</h3>
+    {{form.adresKafedra}}<br>
+    <h3>Завідувач кафедри</h3>
+    {{form.managerKafedra}}<br>
+    <h3>Факультет кафедри</h3>
+    {{form.facultyKafedra}}<br>
+    <br><br>
+    <span>{{error}}</span>
+    <button type="submit">Додати кафедру</button>
+</form>
+
+
+
+
+{% endblock  %}
