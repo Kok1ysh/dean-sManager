@@ -1,13 +1,13 @@
 body {
-    background-color: #121212;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #d91e1e;
 }
 .navbar {
     background-color: #1c1c1c;
 }
 .navbar-nav .nav-link {
-    color: #ffffff;
+    color: #e22828;
 }
 .navbar-nav .nav-link:hover {
-    color: #f8f9fa;
+    color: #e31818;
 }

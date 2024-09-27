@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'main',
     'control',
+    'educational_programs',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,15 @@
+{% extends "main/index.html" %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header card-header-secondary">
+            <h4 class="card-title">Освітньо-професійні програми</h4>
+            <a href="{% url 'create_educational_programs' %}">Додати освітньо-професійну програму</a>
+        </div>
+        <ul>
+            {% for educational_programs in educational_programss %}
+                <li class="card-body">{{ educational_programs.title }} | <a href="{% url 'educational_programs:update_educational_programs' educational_programs.id %}">Edit</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock content %}

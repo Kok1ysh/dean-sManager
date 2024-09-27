@@ -1,6 +1,11 @@
 from django.shortcuts import render, redirect
-from .models import Facultys
-from .forms import FacultysForm, KafedrasForm
+from django.contrib import messages
+from django.views.generic import ListView
+from django.views.generic.edit import (
+    CreateView, UpdateView
+)
+from .models import *
+from .forms import *
 
 def control_home(request):
     return render(request, 'control/control_home.html')
@@ -40,9 +45,16 @@ def add_kafedra(request):
     data={
         'form':form,
         'error':error,
-        'facultys':Facultys.objects.all() 
+         
     }
 
        
 
     return render(request, 'control/add_kafedra.html',data)
+
+
+
+
+
+
+
