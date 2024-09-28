@@ -7,8 +7,8 @@
             <a href="{% url 'create_educational_programs' %}">Додати освітньо-професійну програму</a>
         </div>
         <ul>
-            {% for educational_programs in educational_programss %}
-                <li class="card-body">{{ educational_programs.title }} | <a href="{% url 'educational_programs:update_educational_programs' educational_programs.id %}">Edit</a></li>
+            {% for educational_program in educational_programs %}
+                <li class="card-body">{{ educational_program.title }} | <a href="{% url 'update_educational_programs' educational_program.id %}">Edit</a></li>
             {% endfor %}
         </ul>
     </div>
