@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'control',
     'educational_programs',
     'group',
+    'robochiy_navchalnuy_plan',
+    'vukladach',
+    
 ]
 
 MIDDLEWARE = [

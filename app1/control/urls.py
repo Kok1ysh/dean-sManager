@@ -6,5 +6,7 @@ urlpatterns = [
     path('addfaculty/', views.add_faculty,name='add_faculty'),
     path('addkafedra/', views.add_kafedra,name='add_kafedra'),
     path('educational-programs-create-or-update/', include('educational_programs.urls')),
-    path('group-create-or-update/', include('group.urls'))
+    path('group-create-or-update/', include('group.urls')),
+    path('robochiy-navchalnuy-plan/', include('robochiy_navchalnuy_plan.urls')),
+    path('vukladach/', include('vukladach.urls')),
 ]

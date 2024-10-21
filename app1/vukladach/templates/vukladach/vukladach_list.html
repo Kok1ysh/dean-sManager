@@ -1,0 +1,15 @@
+{% extends "main/index.html" %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header card-header-secondary">
+            <h4 class="card-title">Викладачі</h4>
+            <a href="{% url 'vukladach_create' %}">Додати викладача</a>
+        </div>
+        <ul>
+            {% for vukladach in vukladachs %}
+                <li class="card-body">{{ vukladach }} | <a href="{% url 'vukladach_update' vukladach.id %}">Edit</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock content %}
