@@ -1,0 +1,15 @@
+{% extends "main/index.html" %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header card-header-secondary">
+            <h4 class="card-title">Робочі навчальні плани</h4>
+            <a href="{% url 'create_robochiy_navchalnuy_plan' %}">Додати робочий навчальний план</a>
+        </div>
+        <ul>
+            {% for robochiy_navchalnuy_plan in robochiy_navchalnuy_plans %}
+                <li class="card-body">{{ robochiy_navchalnuy_plan }} | <a href="{% url 'update_robochiy_navchalnuy_plan' robochiy_navchalnuy_plan.id %}">Edit</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock content %}

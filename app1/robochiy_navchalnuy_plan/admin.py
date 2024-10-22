@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import RobochiyNavchalnuyPlan, ElementRNP
+
+
+admin.site.register(RobochiyNavchalnuyPlan)
+admin.site.register(ElementRNP)
