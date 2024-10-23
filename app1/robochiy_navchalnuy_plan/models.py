@@ -22,7 +22,9 @@ class ElementRNP(models.Model):
     praktuchni1sm=models.PositiveIntegerField(default=0)
     laboratorni1sm=models.PositiveIntegerField(default=0)
     samostiynaRobota1sm=models.PositiveIntegerField(default=0)
-    formaKontrolu1sm=models.ForeignKey(FormaKontrolus,on_delete=models.PROTECT, related_name='elementrnp_forma1')
+    formaKontrolu1sm=models.ForeignKey(FormaKontrolus,on_delete=models.PROTECT, related_name='elementrnp_forma1', 
+        blank=True,  
+        null=True)
 
     kredutuECTS2sm=models.PositiveIntegerField(default=0)
     Godun2sm=models.PositiveIntegerField(default=0)
@@ -30,7 +32,9 @@ class ElementRNP(models.Model):
     praktuchni2sm=models.PositiveIntegerField(default=0)
     laboratorni2sm=models.PositiveIntegerField(default=0)
     samostiynaRobota2sm=models.PositiveIntegerField(default=0)
-    formaKontrolu2sm=models.ForeignKey(FormaKontrolus,on_delete=models.PROTECT, related_name='elementrnp_forma2')
+    formaKontrolu2sm=models.ForeignKey(FormaKontrolus,on_delete=models.PROTECT, related_name='elementrnp_forma2', 
+        blank=True,  
+        null=True)
 
     robochiyNavchalnuyPlan=models.ForeignKey(RobochiyNavchalnuyPlan,on_delete=models.PROTECT)
 
