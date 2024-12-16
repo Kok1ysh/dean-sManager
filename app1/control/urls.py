@@ -9,4 +9,5 @@ urlpatterns = [
     path('group-create-or-update/', include('group.urls')),
     path('robochiy-navchalnuy-plan/', include('robochiy_navchalnuy_plan.urls')),
     path('vukladach/', include('vukladach.urls')),
+    path('rozklad/', include('rozklad.urls')),
 ]

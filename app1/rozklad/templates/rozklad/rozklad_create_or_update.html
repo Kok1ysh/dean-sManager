@@ -1,0 +1,108 @@
+{% extends "main/index.html" %}
+
+{% block content %}
+<style>
+    
+    table {
+        
+        border-collapse: collapse;
+        margin-top: 20px;
+        width: 100%;
+        max-width: 800px;
+    }
+
+    table, th, td {
+        border: 1px solid #ddd;
+        text-align: center;
+    }
+
+    th, td {
+        padding: 10px;
+        
+    }
+
+    th {
+        background-color: #f9f9f9;
+    }
+    .custom-select {
+        width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    
+</style>
+
+<form method="post">
+    {%csrf_token%}
+    <h3>Факультет </h3>{{form.facultet}}
+    <h3>Група </h3>{{form.grupa}}
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Понеділок</th>
+                <th>Вівторок</th>
+                <th>Середа</th>
+                <th>Четвер</th>
+                <th>П'ятниця</th>
+                <th>Субота</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1 пара</td>
+                <td>{{form.ponedilok_1_para}}</td>
+                <td>{{form.vivtorok_1_para}}</td>
+                <td>{{form.sereda_1_para}}</td>
+                <td>{{form.chetver_1_para}}</td>
+                <td>{{form.pyatnytsya_1_para}}</td>
+                <td>{{form.subota_1_para}}</td>
+            </tr>
+            <tr>
+                <td>2 пара</td>
+                <td>{{form.ponedilok_2_para}}</td>
+                <td>{{form.vivtorok_2_para}}</td>
+                <td>{{form.sereda_2_para}}</td>
+                <td>{{form.chetver_2_para}}</td>
+                <td>{{form.pyatnytsya_2_para}}</td>
+                <td>{{form.subota_2_para}}</td>
+            </tr>
+            <tr>
+                <td>3 пара</td>
+                <td>{{form.ponedilok_3_para}}</td>
+                <td>{{form.vivtorok_3_para}}</td>
+                <td>{{form.sereda_3_para}}</td>
+                <td>{{form.chetver_3_para}}</td>
+                <td>{{form.pyatnytsya_3_para}}</td>
+                <td>{{form.subota_3_para}}</td>
+            </tr>
+            <tr>
+                <td>4 пара</td>
+                <td>{{form.ponedilok_4_para}}</td>
+                <td>{{form.vivtorok_4_para}}</td>
+                <td>{{form.sereda_4_para}}</td>
+                <td>{{form.chetver_4_para}}</td>
+                <td>{{form.pyatnytsya_4_para}}</td>
+                <td>{{form.subota_4_para}}</td>
+            </tr>
+            <tr>
+                <td>5 пара</td>
+                <td>{{form.ponedilok_5_para}}</td>
+                <td>{{form.vivtorok_5_para}}</td>
+                <td>{{form.sereda_5_para}}</td>
+                <td>{{form.chetver_5_para}}</td>
+                <td>{{form.pyatnytsya_5_para}}</td>
+                <td>{{form.subota_5_para}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <span>{{error}}</span>
+    <button type="submit">Зберегти</button>
+</form>
+
+{% endblock content %}
+
+

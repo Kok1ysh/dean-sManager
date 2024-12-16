@@ -1,0 +1,15 @@
+{% extends "main/index.html" %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header card-header-secondary">
+            <h4 class="card-title">Розклади</h4>
+            <a href="{% url 'create_rozklad' %}">Додати розклад</a>
+        </div>
+        <ul>
+            {% for rozklad in rozklads %}
+                <li class="card-body">{{ rozklad }} | <a href="{% url 'update_rozklad' rozklad.id %}">Edit</a> | <a href="{% url 'delete_rozklad' rozklad.id %}">Delete</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock content %}

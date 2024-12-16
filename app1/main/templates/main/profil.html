@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профіль викладача</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f4f4f4;
+            padding: 10px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 15px;
+        }
+
+        header a:first-child {
+            margin-left: 0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .profile {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile h1 {
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-section {
+            margin-bottom: 20px;
+        }
+
+        .profile-section h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .disciplines {
+            margin: 10px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            text-align: center;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        .no-classes {
+            background-color: #f9f9f9;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#">Головна</a>
+        <div>
+            <a href="#">Вихід</a>
+        </div>
+    </header>
+    <main>
+        <div class="profile">
+            <h1>Профіль викладача</h1>
+
+            <div class="profile-section">
+                <h2>Особиста інформація</h2>
+                <p><strong>ПІБ:</strong> Іванов Іван Іванович</p>
+                <p><strong>Посада:</strong> Старший викладач</p>
+                <p><strong>Наукова ступінь:</strong> Професор</p>
+                <p><strong>Вчене звання:</strong> Доктор педагогічних наук</p>
+                <p><strong>Факультет:</strong> Факультет математики та інформатики</p>
+                <p><strong>Кафедра:</strong> Інформаційних технологій та моделювання</p>
+            </div>
+
+            <div class="profile-section">
+                <h2>Закріплені дисципліни</h2>
+                <ul class="disciplines">
+                    <li>Програмування — 90 годин (КТ3)</li>
+                    <li>Архітектура комп'ютера — 90 годин (КТ2)</li>
+                    <li>Комп'ютерні системи та мережі — 60 годин (КТ3)</li>
+                    <li>Системне адміністрування — 60 годин (КТ4)</li>
+                    <li>Операційні системи — 90 годин (КТ2)</li>
+                </ul>
+                <p><strong>Загальна кількість годин:</strong> 390 годин</p>
+            </div>
+
+            <div class="profile-section">
+                <h2>Особистий розклад</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Понеділок</th>
+                            <th>Вівторок</th>
+                            <th>Середа</th>
+                            <th>Четвер</th>
+                            <th>П'ятниця</th>
+                            <th>Субота</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1 пара</td>
+                            <td>Програмування (КТ3)</td>
+                            <td>Системне адміністрування (КТ4)</td>
+                            <td>Операційні системи (КТ2)</td>
+                            <td>Програмування (КТ3)</td>
+                            <td>Системне адміністрування (КТ4)</td>
+                            <td class="no-classes">—</td>
+                        </tr>
+                        <tr>
+                            <td>2 пара</td>
+                            <td class="no-classes"></td>
+                            <td class="no-classes"></td>
+                            <td class="no-classes"></td>
+                            <td class="no-classes"></td>
+                            <td class="no-classes"></td>
+                            <td class="no-classes">—</td>
+                        </tr>
+                        <tr>
+                            <td>3 пара</td>
+                            <td>Операційні системи (КТ2)</td>
+                            <td>Комп'ютерні системи та мережі (КТ3)</td>
+                            <td>Системне адміністрування (КТ4)</td>
+                            <td>Комп'ютерні системи та мережі (КТ3)</td>
+                            <td>Архітектура комп'ютера (КТ2)</td>
+                            <td class="no-classes">—</td>
+                        </tr>
+                        <tr>
+                            <td>4 пара</td>
+                            <td class="no-classes"></td>
+                            <td class="no-classes"></td>
+                            <td class="no-classes"></td>
+                            <td class="no-classes"></td>
+                            <td class="no-classes"></td>
+                            <td class="no-classes">—</td>
+                        </tr>
+                        <tr>
+                            <td>5 пара</td>
+                            <td>Архітектура комп'ютера (КТ2)</td>
+                            <td>Програмування (КТ3)</td>
+                            <td>Архітектура комп'ютера (КТ2)</td>
+                            <td>Операційні системи (КТ2)</td>
+                            <td>Програмування (КТ3)</td>
+                            <td class="no-classes">—</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

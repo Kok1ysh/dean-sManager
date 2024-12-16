@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'group',
     'robochiy_navchalnuy_plan',
     'vukladach',
+    'rozklad',
     
 ]
 
