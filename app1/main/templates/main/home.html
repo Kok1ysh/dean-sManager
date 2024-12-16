@@ -76,79 +76,28 @@
     <h1>Розклад занять</h1>
     <div class="form-group">
         <label for="faculty">Факультет:</label>
-        <select id="faculty">
-            <option value="">Виберіть факультет</option>
-            <option value="ipz">Факультет математики та інформатики</option>
+        <select  name="faculty"
+        hx-get="{% url 'groups' %}"
+        hx-trigger="change"
+        hx-target="#groups">
+
+            <option selected>Виберіть факультет</option>
+            {% for faculty in facultys %}
+                <option value="{{faculty.pk}}">{{ faculty }}</option>
+            {% endfor %}
         </select>
     </div>
     <div class="form-group">
         <label for="group">Група:</label>
-        <select id="group">
-            <option value="">Виберіть групу</option>
-            <option value="ipz-41">ІПЗ-41</option>
-        </select>
+        <div id="groups">
+            {% include 'main/groups.html' %} 
+        </div>
     </div>
+    
     <button id="show-schedule">Показати розклад</button>
-    <table id="schedule">
-        <thead>
-            <tr>
-                <th>Пара</th>
-                <th>Понеділок</th>
-                <th>Вівторок</th>
-                <th>Середа</th>
-                <th>Четвер</th>
-                <th>П'ятниця</th>
-                <th>Субота</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1 пара</td>
-                <td>Якість і тестування ПЗ</td>
-                <td>Конструювання ПЗ</td>
-                <td>Хмарні обчислення</td>
-                <td>Основи стандартизації</td>
-                <td>Якість і тестування ПЗ</td>
-                <td class="no-classes">—</td>
-            </tr>
-            <tr>
-                <td>2 пара</td>
-                <td>Хмарні обчислення</td>
-                <td class="no-classes">—</td>
-                <td>Економіка і право</td>
-                <td>Іноземна мова</td>
-                <td>Конструювання ПЗ</td>
-                <td class="no-classes">—</td>
-            </tr>
-            <tr>
-                <td>3 пара</td>
-                <td>Іноземна мова</td>
-                <td>Основи стандартизації</td>
-                <td class="no-classes">—</td>
-                <td>Хмарні обчислення</td>
-                <td>Економіка і право</td>
-                <td class="no-classes">—</td>
-            </tr>
-            <tr>
-                <td>4 пара</td>
-                <td class="no-classes">—</td>
-                <td>Іноземна мова</td>
-                <td>Конструювання ПЗ</td>
-                <td class="no-classes">—</td>
-                <td class="no-classes">—</td>
-                <td class="no-classes">—</td>
-            </tr>
-            <tr>
-                <td>5 пара</td>
-                <td>Економіка і право</td>
-                <td class="no-classes">—</td>
-                <td>Якість і тестування ПЗ</td>
-                <td>Конструювання ПЗ</td>
-                <td>Основи стандартизації</td>
-                <td class="no-classes">—</td>
-            </tr>
-        </tbody>
-    </table>
+    <div id="predmet">
+        {% include 'main/predmet.html' %} 
+    </div>
 </main>
 
 {% endblock  %}

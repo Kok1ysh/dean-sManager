@@ -1,0 +1,10 @@
+<select class="custom-select mb-4" name="group" 
+    hx-get="{% url 'predmet' %}"
+    hx-trigger="change"
+    hx-target="#predmet">>
+
+    <option selected>Виберіть групу</option>
+    {% for group in groups %}
+        <option value="{{group.pk}}">{{ group }}</option>
+    {% endfor %}
+</select>
