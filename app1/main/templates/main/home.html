@@ -71,6 +71,18 @@
         background-color: #f4f4f4;
         color: #999;
     }
+
+    th.vertical {
+        writing-mode: vertical-rl; /* Вертикальний текст */
+        transform: rotate(180deg); /* Повертає текст */
+    }
+
+    /* Горизонтальний текст для "Предмет" і "Викладач" */
+    th.horizontal {
+        writing-mode: horizontal-tb;
+        transform: none;
+        height: auto; /* Звичайна висота */
+    }
 </style>
 <main>
     <h1>Розклад занять</h1>
@@ -93,8 +105,9 @@
             {% include 'main/groups.html' %} 
         </div>
     </div>
-    
+    <button id="show-schedule-grafik">Показати графік навчання</button>
     <button id="show-schedule">Показати розклад</button>
+    <button id="show-schedule-plan">Показати робочий навчальний план</button>
     <div id="predmet">
         {% include 'main/predmet.html' %} 
     </div>

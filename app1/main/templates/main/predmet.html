@@ -1,6 +1,9 @@
 <table id="schedule">
     <thead>
         <tr>
+            <th colspan="7" style="text-align: center; font-size: 1.2em;">Розклад</th>
+        </tr>
+        <tr>
             <th>Пара</th>
             <th>Понеділок</th>
             <th>Вівторок</th>
@@ -56,5 +59,89 @@
             <td>{{predmet.pyatnytsya_5_para|default_if_none:''}}</td>
             <td>{{predmet.subota_5_para|default_if_none:''}}</td>
         </tr>
+    </tbody>
+</table>
+
+<table id="schedule_grafik">
+    <thead>
+        <tr>
+            <th colspan="10" style="text-align: center; font-size: 1.2em;">Графік навчання</th>
+        </tr>
+        <tr>
+            <th>Теоретичне навчання</th>
+            <th>Практика</th>
+            <th>Зимова сесія</th>
+            <th>Канікули</th>
+            <th>Теоретичне навчання</th>
+            <th>Практика</th>
+            <th>Літня сесія</th>
+            <th>Канікули</th>
+            <th>Підготовка КР</th>
+            <th>ЕК</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>            
+            <td>{{grafik.teoretuchne_navchannya_1sm|default_if_none:''}}</td> 
+            <td>{{grafik.praktuka_1sm|default_if_none:''}}</td>
+            <td>{{grafik.sesiya_1sm|default_if_none:''}}</td>
+            <td>{{grafik.kanikylu_1sm|default_if_none:''}}</td>
+            <td>{{grafik.teoretuchne_navchannya_2sm|default_if_none:''}}</td>
+            <td>{{grafik.praktuka_2sm|default_if_none:''}}</td>
+            <td>{{grafik.sesiya_2sm|default_if_none:''}}</td>
+            <td>{{grafik.kanikylu_2sm|default_if_none:''}}</td>
+            <td>{{grafik.pidgotovkaKR|default_if_none:''}}</td>
+            <td>{{grafik.ekzamenaciyna_komisiya|default_if_none:''}}</td>
+        </tr>        
+    </tbody>
+</table>
+
+<table id="schedule_plan">
+    <thead>
+        <tr>
+            <th colspan="17" style="text-align: center; font-size: 1.2em;">Робочий навчальний план</th>
+        </tr>
+        <tr>
+            <th class="horizontal">Предмет</th>
+            <th class="horizontal">Викладач</th>
+            <th class="vertical">Години</th>
+            <th class="vertical">Кредити ECTS (1см)</th>
+            <th class="vertical">Години (1см)</th>
+            <th class="vertical">Лекції (1см)</th>
+            <th class="vertical">Практичні (1см)</th>
+            <th class="vertical">Лабораторні (1см)</th>
+            <th class="vertical">Самостійна робота (1см)</th>
+            <th class="vertical">Форма контролю (1см)</th>
+            <th class="vertical">Кредити ECTS (2см)</th>
+            <th class="vertical">Години (2см)</th>
+            <th class="vertical">Лекції (2см)</th>
+            <th class="vertical">Практичні (2см)</th>
+            <th class="vertical">Лабораторні (2см)</th>
+            <th class="vertical">Самостійна робота (2см)</th>
+            <th class="vertical">Форма контролю (2см)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in plan %}
+        <tr>
+            <td>{{ item.title }}</td>
+            <td>{{ item.vukladach }}</td>
+            <td>{{ item.Godun }}</td>
+            <td>{{ item.kredutuECTS1sm }}</td>
+            <td>{{ item.Godun1sm }}</td>
+            <td>{{ item.lekcii1sm }}</td>
+            <td>{{ item.praktuchni1sm }}</td>
+            <td>{{ item.laboratorni1sm }}</td>
+            <td>{{ item.samostiynaRobota1sm }}</td>
+            <td>{{ item.formaKontrolu1sm|default_if_none:'' }}</td>
+            <td>{{ item.kredutuECTS2sm }}</td>
+            <td>{{ item.Godun2sm }}</td>
+            <td>{{ item.lekcii2sm }}</td>
+            <td>{{ item.praktuchni2sm }}</td>
+            <td>{{ item.laboratorni2sm }}</td>
+            <td>{{ item.samostiynaRobota2sm }}</td>
+            <td>{{ item.formaKontrolu2sm|default_if_none:'' }}</td>
+        </tr>
+        {% endfor %}
     </tbody>
 </table>
