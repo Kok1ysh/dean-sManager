@@ -2,12 +2,12 @@
 
 {% extends "main/index.html" %}
 {% block content %}
-<form enctype="multipart/form-data" class="container" method="post" id="vukladach_form">
+<form enctype="multipart/form-data" class="container" method="post" id="grafik_navchannya_form">
     {% csrf_token %}
     <!-- main form start --- in our case product form -->
     <div class="card">
         <div class="card-header card-header-secondary">
-            <h4 class="card-title">Додати викладача</h4>
+            <h4 class="card-title">Додати графік навчання</h4>
         </div>
         {% for field in form %}
             <div class="form-group card-body">

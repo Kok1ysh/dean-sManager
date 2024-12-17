@@ -1,0 +1,15 @@
+{% extends "main/index.html" %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header card-header-secondary">
+            <h4 class="card-title">Графіки навчання груп</h4>
+            <a href="{% url 'grafik_navchannya_create' %}">Додати графік навчання для групи</a>
+        </div>
+        <ul>
+            {% for grafik_navchannya in grafik_navchannyas %}
+                <li class="card-body">{{ grafik_navchannya }} | <a href="{% url 'grafik_navchannya_update' grafik_navchannya.id %}">Редагувати</a> | <a href="{% url 'delete_grafik_navchannya' grafik_navchannya.id %}">Видалити</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock content %}

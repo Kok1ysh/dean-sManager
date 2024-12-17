@@ -1,0 +1,14 @@
+{% extends "main/index.html" %}
+
+{% block content %}
+
+<h1>Видалення графіку навчання<h1>
+<form method="post">
+    {%csrf_token%}
+    
+    <button type="submit">Видалити графік навчання</button>
+</form>
+
+{% endblock content %}
+
+
