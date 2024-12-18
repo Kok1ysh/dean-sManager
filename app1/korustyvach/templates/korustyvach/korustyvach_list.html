@@ -1,0 +1,15 @@
+{% extends "main/index.html" %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header card-header-secondary">
+            <h4 class="card-title">Користувачі</h4>
+            <a href="{% url 'korustyvach_create' %}">Додати користувача</a>
+        </div>
+        <ul>
+            {% for korustyvach in korustyvachs %}
+                <li class="card-body">{{ korustyvach }} |  <a href="{% url 'delete_korustyvach' korustyvach.id %}">Видалити</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock content %}

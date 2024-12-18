@@ -13,21 +13,31 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg ">
-        <a class="navbar-brand" href="#">Назва Сайту</a>
+        <a class="navbar-brand" href="{% url 'home' %}">Назва Сайту</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto"> 
+                {%if request.user.is_vukladach%}               
                 <li class="nav-item">
-                    <a class="nav-link" href="">Розклад</a>
+                    <a class="nav-link" href="{% url 'profil' %}">{{request.user.vukladach}}</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'profil' %}">Викладачеві</a>
-                </li>
+                {%endif%}
+                {%if request.user.is_admin%} 
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'control_home' %}">Адміністратору</a>
                 </li>
+                {%endif%}
+                {%if request.user.is_authenticated%} 
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout_korustyvach' %}">Вихід</a>
+                </li>
+                {%else%}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login_korustyvach' %}">Вхід</a>
+                </li>
+                {%endif%}
             </ul>
         </div>
     </nav>

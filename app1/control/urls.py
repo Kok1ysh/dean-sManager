@@ -11,4 +11,5 @@ urlpatterns = [
     path('vukladach/', include('vukladach.urls')),
     path('rozklad/', include('rozklad.urls')),
     path('grafik-navchannya/', include('grafik_navchannya.urls')),
+    path('korustyvach/', include('korustyvach.urls')),
 ]
