@@ -1,37 +1,7 @@
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Профіль викладача</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+{% extends "main/index.html" %}
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #f4f4f4;
-            padding: 10px 20px;
-        }
-
-        header a {
-            text-decoration: none;
-            color: #333;
-            margin-left: 15px;
-        }
-
-        header a:first-child {
-            margin-left: 0;
-        }
-
-        main {
-            padding: 20px;
-        }
+{% block content %}
+<style>       
 
         .profile {
             max-width: 800px;
@@ -85,39 +55,30 @@
             background-color: #f9f9f9;
             border: none;
         }
-    </style>
+</style>
 </head>
-<body>
-    <header>
-        <a href="#">Головна</a>
-        <div>
-            <a href="#">Вихід</a>
-        </div>
-    </header>
-    <main>
+
         <div class="profile">
             <h1>Профіль викладача</h1>
 
             <div class="profile-section">
                 <h2>Особиста інформація</h2>
-                <p><strong>ПІБ:</strong> Іванов Іван Іванович</p>
-                <p><strong>Посада:</strong> Старший викладач</p>
-                <p><strong>Наукова ступінь:</strong> Професор</p>
-                <p><strong>Вчене звання:</strong> Доктор педагогічних наук</p>
-                <p><strong>Факультет:</strong> Факультет математики та інформатики</p>
-                <p><strong>Кафедра:</strong> Інформаційних технологій та моделювання</p>
+                <p><strong>ПІБ:</strong>{{request.user.vukladach.prizvusche}} {{request.user.vukladach.imya}} {{request.user.vukladach.poBatkovi}}</p>
+                <p><strong>Посада:</strong>{{request.user.vukladach.posada}}</p>
+                <p><strong>Наукова ступінь:</strong> {{request.user.vukladach.naukovaStupin}}</p>
+                <p><strong>Вчене звання:</strong> {{request.user.vukladach.vcheneZvannya}}</p>
+                <p><strong>Факультет:</strong> {{request.user.vukladach.facultet}}</p>
+                <p><strong>Кафедра:</strong> {{request.user.vukladach.kafedra}}</p>
             </div>
 
             <div class="profile-section">
                 <h2>Закріплені дисципліни</h2>
                 <ul class="disciplines">
-                    <li>Програмування — 90 годин (КТ3)</li>
-                    <li>Архітектура комп'ютера — 90 годин (КТ2)</li>
-                    <li>Комп'ютерні системи та мережі — 60 годин (КТ3)</li>
-                    <li>Системне адміністрування — 60 годин (КТ4)</li>
-                    <li>Операційні системи — 90 годин (КТ2)</li>
+                    {% for item in predmetu %}
+                    <li>{{ item.title }} ({{ item.Godun }} годин)</li>
+                    {% endfor %}
                 </ul>
-                <p><strong>Загальна кількість годин:</strong> 390 годин</p>
+                <p><strong>Загальна кількість годин:</strong> {{total_hours}} годин</p>
             </div>
 
             <div class="profile-section">
@@ -137,53 +98,53 @@
                     <tbody>
                         <tr>
                             <td>1 пара</td>
-                            <td>Програмування (КТ3)</td>
-                            <td>Системне адміністрування (КТ4)</td>
-                            <td>Операційні системи (КТ2)</td>
-                            <td>Програмування (КТ3)</td>
-                            <td>Системне адміністрування (КТ4)</td>
-                            <td class="no-classes">—</td>
+                            <td>{{ponedilok_1_para.ponedilok_1_para}}</td>
+                            <td>{{vivtorok_1_para.vivtorok_1_para}}</td>
+                            <td>{{sereda_1_para.sereda_1_para}}</td>
+                            <td>{{chetver_1_para.chetver_1_para}}</td>
+                            <td>{{pyatnytsya_1_para.pyatnytsya_1_para}}</td>
+                            <td>{{subota_1_para.subota_1_para}}</td>
                         </tr>
                         <tr>
                             <td>2 пара</td>
-                            <td class="no-classes"></td>
-                            <td class="no-classes"></td>
-                            <td class="no-classes"></td>
-                            <td class="no-classes"></td>
-                            <td class="no-classes"></td>
-                            <td class="no-classes">—</td>
+                            <td>{{ponedilok_2_para.ponedilok_2_para}}</td>
+                            <td>{{vivtorok_2_para.vivtorok_2_para}}</td>
+                            <td>{{sereda_2_para.sereda_2_para}}</td>
+                            <td>{{chetver_2_para.chetver_2_para}}</td>
+                            <td>{{pyatnytsya_2_para.pyatnytsya_2_para}}</td>
+                            <td>{{subota_2_para.subota_2_para}}</td>
                         </tr>
                         <tr>
                             <td>3 пара</td>
-                            <td>Операційні системи (КТ2)</td>
-                            <td>Комп'ютерні системи та мережі (КТ3)</td>
-                            <td>Системне адміністрування (КТ4)</td>
-                            <td>Комп'ютерні системи та мережі (КТ3)</td>
-                            <td>Архітектура комп'ютера (КТ2)</td>
-                            <td class="no-classes">—</td>
+                            <td>{{ponedilok_3_para.ponedilok_3_para}}</td>
+                            <td>{{vivtorok_3_para.vivtorok_3_para}}</td>
+                            <td>{{sereda_3_para.sereda_3_para}}</td>
+                            <td>{{chetver_3_para.chetver_3_para}}</td>
+                            <td>{{pyatnytsya_3_para.pyatnytsya_3_para}}</td>
+                            <td>{{subota_3_para.subota_3_para}}</td>
                         </tr>
                         <tr>
                             <td>4 пара</td>
-                            <td class="no-classes"></td>
-                            <td class="no-classes"></td>
-                            <td class="no-classes"></td>
-                            <td class="no-classes"></td>
-                            <td class="no-classes"></td>
-                            <td class="no-classes">—</td>
+                            <td>{{ponedilok_4_para.ponedilok_4_para}}</td>
+                            <td>{{vivtorok_4_para.vivtorok_4_para}}</td>
+                            <td>{{sereda_4_para.sereda_4_para}}</td>
+                            <td>{{chetver_4_para.chetver_4_para}}</td>
+                            <td>{{pyatnytsya_4_para.pyatnytsya_4_para}}</td>
+                            <td>{{subota_4_para.subota_4_para}}</td>
                         </tr>
                         <tr>
                             <td>5 пара</td>
-                            <td>Архітектура комп'ютера (КТ2)</td>
-                            <td>Програмування (КТ3)</td>
-                            <td>Архітектура комп'ютера (КТ2)</td>
-                            <td>Операційні системи (КТ2)</td>
-                            <td>Програмування (КТ3)</td>
-                            <td class="no-classes">—</td>
+                            <td>{{ponedilok_5_para.ponedilok_5_para}}</td>
+                            <td>{{vivtorok_5_para.vivtorok_5_para}}</td>
+                            <td>{{sereda_5_para.sereda_5_para}}</td>
+                            <td>{{chetver_5_para.chetver_5_para}}</td>
+                            <td>{{pyatnytsya_5_para.pyatnytsya_5_para}}</td>
+                            <td>{{subota_5_para.subota_5_para}}</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-    </main>
-</body>
-</html>
+
+
+{% endblock  %}
