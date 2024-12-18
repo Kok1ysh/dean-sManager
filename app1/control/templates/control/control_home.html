@@ -2,21 +2,89 @@
 
 
 {% block content %}
-<h1><a href="{% url 'add_faculty' %}">Факультет</a></h1>
-<h1><a href="{% url 'add_kafedra' %}">Кафедра</a></h1>
-<h1><a href="{% url 'list_educational_programs' %}">Освітньо-професійна програма</a></h1>
-<h1><a href="{% url 'group_list' %}">Група</a></h1>
-<h1><a href="{% url 'vukladach_list' %}">Викладач</a></h1>
-<h1><a href="{% url 'list_robochiy_navchalnuy_plans' %}">Робочий навчальний план</a></h1>
-<h1><a href="{% url 'list_rozklad' %}">Розклад</a></h1>
-<h1><a href="{% url 'grafik_navchannya_list' %}">Графік навчання</a></h1>
-<h1><a href="{% url 'korustyvach_list' %}">Користувач</a></h1>
-<!--
-<h1>Додати факультет</h1>
-<h1>Додати кафедру</h1>
-<h1>Додати групу</h1>
-<h1>Додати предмет</h1>
-<h1>Додати викладача</h1>
-<h1>Змінити розклад</h1>
--->
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f4f4f4;
+        padding: 10px 20px;
+    }
+
+    header a {
+        text-decoration: none;
+        color: #333;
+        margin-left: 15px;
+    }
+
+    header a:first-child {
+        margin-left: 0;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .categories {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #f9f9f9;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .categories ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .categories li {
+        margin-bottom: 10px;
+    }
+
+    .categories a {
+        text-decoration: none;
+        color: #333;
+        font-size: 16px;
+    }
+
+    .categories a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<body>
+
+<main>
+    <h1>Категорії</h1>
+    <div class="categories">
+        <ul>
+            <li><a href="{% url 'add_faculty' %}">Факультети</a></li>
+            <li><a href="{% url 'add_kafedra' %}">Кафедри</a></li>
+            <li><a href="{% url 'list_educational_programs' %}">Освітньо-професійні програми</a></li>
+            <li><a href="{% url 'group_list' %}">Групи</a></li>
+            <li><a href="{% url 'vukladach_list' %}">Викладачі</a></li>
+            <li><a href="{% url 'list_robochiy_navchalnuy_plans' %}">Робочі навчальні плани</a></li>
+            <li><a href="{% url 'list_rozklad' %}">Розклади</a></li>
+            <li><a href="{% url 'grafik_navchannya_list' %}">Графіки навчання</a></li>
+            <li><a href="{% url 'korustyvach_list' %}">Користувачі</a></li>
+        </ul>
+    </div>
+</main>
+
+
 {% endblock  %}

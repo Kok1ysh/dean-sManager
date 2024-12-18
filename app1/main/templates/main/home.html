@@ -36,7 +36,7 @@
     }
 
     .form-group {
-        margin: 15px 0;
+        margin: 10px 0;
     }
 
     table {
@@ -76,6 +76,16 @@
         transform: none;
         height: auto; /* Звичайна висота */
     }
+    .group-dropbox{
+        display: flex;
+        justify-content: space-between;
+    }
+    .wtf{
+        margin-right:5px;
+    }
+    .knopku{
+        margin: 5px;
+    }
 </style>
 <main>
     <h1>Розклад занять</h1>
@@ -93,14 +103,16 @@
         </select>
     </div>
     <div class="form-group">
-        <label for="group">Група:</label>
-        <div id="groups">
-            {% include 'main/groups.html' %} 
-        </div>
+        <div class="group-dropbox">
+            <label class="wtf" for="group">Група:</label>
+            <div  id="groups">
+                {% include 'main/groups.html' %} 
+            </div>
+        </div>    
     </div>
-    <button id="show-schedule-grafik">Показати графік навчання</button>
-    <button id="show-schedule">Показати розклад</button>
-    <button id="show-schedule-plan">Показати робочий навчальний план</button>
+    <button class="knopku" id="show-schedule-grafik">Показати графік навчання</button>
+    <button class="knopku" id="show-schedule">Показати розклад</button>
+    <button class="knopku" id="show-schedule-plan">Показати робочий навчальний план</button>
     <div id="predmet">
         {% include 'main/predmet.html' %} 
     </div>
