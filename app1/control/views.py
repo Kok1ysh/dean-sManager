@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.views.generic import ListView
+from django.views.generic import ListView, DeleteView
 from django.urls import reverse_lazy
 from django.views.generic.edit import (
     CreateView, UpdateView
@@ -68,6 +68,16 @@ class KafedrasUpdate(UpdateView):
     def form_valid(self, form):
         
         return super().form_valid(form)
+    
+class FacultysDelete(DeleteView):
+    model = Facultys
+    success_url='/control/facultys-list'
+    template_name = "control/faculty_delete.html"
+
+class KafedrasDelete(DeleteView):
+    model = Kafedras
+    success_url='/control/kafedras-list'
+    template_name = "control/kafedras_delete.html"
 
 # def add_faculty(request):
 #     error=''

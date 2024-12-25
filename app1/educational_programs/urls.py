@@ -1,7 +1,7 @@
 from django.urls import path, include
 
 from .views import (
-    EducationalProgramsList, EducationalProgramsCreate, EducationalProgramsUpdate,
+    EducationalProgramsList, EducationalProgramsCreate, EducationalProgramsUpdate, EducationalProgramsDelete,
      delete_komponent_educational_programs
 )
 
@@ -13,4 +13,5 @@ urlpatterns = [
     path('update/<int:pk>/', EducationalProgramsUpdate.as_view(), name='update_educational_programs'),    
     path('delete-komponent-educational-programs/<int:pk>/',
           delete_komponent_educational_programs, name='delete_komponent_educational_programs'),
+    path('<int:pk>/delete/', EducationalProgramsDelete.as_view(), name='delete_educational_programs'),
 ]

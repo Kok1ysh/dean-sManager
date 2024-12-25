@@ -1,7 +1,7 @@
 from django.urls import path, include
 
 from .views import (
-    RobochiyNavchalnuyPlanList, RobochiyNavchalnuyPlanCreate, RobochiyNavchalnuyPlanUpdate,
+    RobochiyNavchalnuyPlanList, RobochiyNavchalnuyPlanCreate, RobochiyNavchalnuyPlanUpdate, RobochiyNavchalnuyPlanDelete,
      delete_elementrnp
 )
 
@@ -12,4 +12,5 @@ urlpatterns = [
     path('create/', RobochiyNavchalnuyPlanCreate.as_view(), name='create_robochiy_navchalnuy_plan'),
     path('update/<int:pk>/', RobochiyNavchalnuyPlanUpdate.as_view(), name='update_robochiy_navchalnuy_plan'),    
     path('delete-elementrnp/<int:pk>/', delete_elementrnp, name='delete_elementrnp'),
+    path('<int:pk>/delete/', RobochiyNavchalnuyPlanDelete.as_view(), name='delete_robochiy_navchalnuy_plan'),
 ]

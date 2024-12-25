@@ -1,6 +1,133 @@
 {% extends "main/index.html" %}
 
 {% block content %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .rozklad-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #f9f9f9;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .rozklad-container ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .rozklad-container li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #fff;
+    }
+
+    .rozklad-container li span {
+        font-size: 16px;
+    }
+
+    .rozklad-container button {
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    .rozklad-container .edit {
+        background-color: #ffc107;
+        color: #fff;
+        margin-right: 5px;
+    }
+
+    .rozklad-container .edit:hover {
+        background-color: #e0a800;
+    }
+
+    .rozklad-container .delete {
+        background-color: #dc3545;
+        color: #fff;
+    }
+
+    .rozklad-container .delete:hover {
+        background-color: #c82333;
+    }
+
+    .create-button {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 20px auto 0;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .create-button:hover {
+        background-color: #45a049;
+    }
+    a {
+        text-decoration: none; /* Видаляє підкреслення */
+        color: inherit; /* Наслідує колір від батьківського елемента */
+    }
+    
+    a:hover {
+        color: inherit; /* Зберігає колір при наведенні */
+        text-decoration: none; /* Підтверджує відсутність підкреслення */
+    }
+</style>
+    <main>
+        <h1>Освітньо-професійні програми</h1>
+        <div class="rozklad-container">
+            <ul>
+                {% for educational_program in educational_programs %}
+                    <li>
+                        <span>{{ educational_program }}</span>
+                        <div>
+                            <a href="{% url 'update_educational_programs' educational_program.id %}">
+                                <button class="edit">Редагувати</button>
+                            </a>
+                            <a href="{% url 'delete_educational_programs' educational_program.id %}">
+                                <button class="delete">Видалити</button>
+                            </a>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+            <a href="{% url 'create_educational_programs' %}" class="create-button">Створити</a>
+        </div>
+    </main>
+    
+{% endblock content %}
+
+{% comment %} {% extends "main/index.html" %}
+
+{% block content %}
     <div class="card">
         <div class="card-header card-header-secondary">
             <h4 class="card-title">Освітньо-професійні програми</h4>
@@ -12,4 +139,4 @@
             {% endfor %}
         </ul>
     </div>
-{% endblock content %}
+{% endblock content %} {% endcomment %}

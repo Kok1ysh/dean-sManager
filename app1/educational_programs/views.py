@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.views.generic import ListView
+from django.views.generic import ListView, DeleteView
 from django.views.generic.edit import (
     CreateView, UpdateView
 )
@@ -104,3 +104,8 @@ def delete_komponent_educational_programs(request, pk):
             request, 'Komponent educational programs deleted successfully'
             )
     return redirect('update_educational_programs', pk=komponent_educational_programs.educationalProgram.id)
+
+class EducationalProgramsDelete(DeleteView):
+    model = EducationalPrograms
+    success_url='/control/educational-programs-create-or-update/'
+    template_name = "educational_programs/educational_programs_delete.html"

@@ -1,7 +1,7 @@
 from django.urls import path,include
 from . import views
 from .views import (
-    FacultysList, FacultysCreate, FacultysUpdate, KafedrasList, KafedrasCreate, KafedrasUpdate
+    FacultysList, FacultysCreate, FacultysUpdate, KafedrasList, KafedrasCreate, KafedrasUpdate, KafedrasDelete, FacultysDelete
 )
 
 urlpatterns = [
@@ -20,4 +20,7 @@ urlpatterns = [
     path('rozklad/', include('rozklad.urls')),
     path('grafik-navchannya/', include('grafik_navchannya.urls')),
     path('korustyvach/', include('korustyvach.urls')),
+    path('<int:pk>/delete/', FacultysDelete.as_view(), name='delete_facultys'),
+    path('<int:pk>/delete/', KafedrasDelete.as_view(), name='delete_kafedras'),
+    
 ]

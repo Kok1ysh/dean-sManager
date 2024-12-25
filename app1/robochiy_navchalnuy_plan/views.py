@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.views.generic import ListView
+from django.views.generic import ListView, DeleteView
 from django.views.generic.edit import (
     CreateView, UpdateView
 )
@@ -104,3 +104,8 @@ def delete_elementrnp(request, pk):
             request, 'ElementRNP deleted successfully'
             )
     return redirect('update_robochiy_navchalnuy_plan', pk=elementrnp.robochiyNavchalnuyPlan.id)
+
+class RobochiyNavchalnuyPlanDelete(DeleteView):
+    model = RobochiyNavchalnuyPlan
+    success_url='/control/robochiy-navchalnuy-plan/'
+    template_name = "robochiy_navchalnuy_plan/robochiy_navchalnuy_plan_delete.html"

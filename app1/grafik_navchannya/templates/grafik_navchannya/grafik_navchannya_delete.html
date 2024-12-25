@@ -2,13 +2,63 @@
 
 {% block content %}
 
-<h1>Видалення графіку навчання<h1>
-<form method="post">
-    {%csrf_token%}
+<style>
+  .center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    font-family: Arial, sans-serif;
     
-    <button type="submit">Видалити графік навчання</button>
-</form>
+  }
+
+  .form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    background-color:rgb(220, 219, 219);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  button:hover {
+    background-color: #ff3333;
+  }
+
+  button:active {
+    background-color: #cc0000;
+    transform: scale(0.95);
+  }
+</style>
+
+<div class="center-container">
+  <div class="form-wrapper">
+    <h1>Видалення графіку навчання</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Видалити графік навчання</button>
+    </form>
+  </div>
+</div>
 
 {% endblock content %}
-
-

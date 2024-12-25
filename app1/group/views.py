@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.urls import reverse_lazy
-from django.views.generic import ListView
+from django.views.generic import ListView, DeleteView
 from django.views.generic.edit import (
     CreateView, UpdateView
 )
@@ -37,3 +37,8 @@ class GroupsUpdate(UpdateView):
         
         return super().form_valid(form)
 
+
+class GroupsDelete(DeleteView):
+    model = Groups
+    success_url='/control/group-create-or-update/'
+    template_name = "group/group_delete.html"
